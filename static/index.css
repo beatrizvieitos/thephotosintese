@@ -147,7 +147,7 @@ img, video {
     overflow: hidden;
     color: var(--white);
     margin-top: 0;
-    padding: 80px 40px; /* REDUZIDO: de 250px para 80px para diminuir o espaço inicial */
+    padding: 150px 40px; /* REDUZIDO: de 250px para 80px para diminuir o espaço inicial */
     text-align: center;
 }
 
@@ -302,7 +302,6 @@ img, video {
     display: flex;
     justify-content: center;
     align-items: center;
-    aspect-ratio: 3/2;
 }
 
 .portfolio-item img {
