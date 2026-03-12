@@ -145,9 +145,9 @@ img, video {
 .portfolio-header {
     position: relative;
     overflow: hidden;
-    color: rgb(33, 32, 32);
+    color: var(--white);
     margin-top: 0;
-    padding: 200px 40px; /* Altere de 250px para 100px (ou menos se desejar) */
+    padding: 80px 40px; /* REDUZIDO: de 250px para 80px para diminuir o espaço inicial */
     text-align: center;
 }
 
@@ -223,7 +223,7 @@ img, video {
 .portfolio-header h3 {
     font-size: 3.4rem;
     color: rgb(233, 224, 215);
-    margin-top: 10px 0;
+    margin: 10px 0; /* REDUZIDO para aproximar os textos */
     font-weight: bold;
 }
 
@@ -240,8 +240,8 @@ img, video {
 .header2 {
     text-align: center;
     width: 100%;
-    margin-top: 5px;    /* Reduza de 30px para 10px */
-    margin-bottom: 5px; /* Reduza de 30px para 10px */
+    margin-top: 10px;    /* REDUZIDO: de 30px para 10px */
+    margin-bottom: 10px; /* REDUZIDO: de 30px para 10px */
 }
 
 .header2 h2 {
@@ -252,8 +252,8 @@ img, video {
     letter-spacing: 3px;
     position: relative;
     display: inline-block;
-    padding-bottom: 15px;
-    margin: 20px 0; /* Adicione esta linha */
+    padding-bottom: 10px;
+    margin: 10px 0; /* REDUZIDO */
 }
 
 .header2 h2::after {
@@ -272,12 +272,12 @@ img, video {
     font-size: 1.3rem;
     font-weight: bold;
     text-align: center;
-    margin: 10px 0; /* Adicione esta linha */
+    margin: 5px 0; /* Adicione esta linha */
 }
 
 .header2.e-mais {
-    margin-top: -30px;
-    margin-bottom: 90px;
+    margin-top: 0px;
+    margin-bottom: 40px; /* Reduzido para aproximar do footer */
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -286,10 +286,10 @@ img, video {
 /* --- GRID DE PORTFÓLIO --- */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3px;
+    grid-template-columns: repeat(3, 1fr); /* FIXO: 3 colunas no computador */
+    gap: 15px; /* Espaço entre as fotos */
     background-color: transparent;
-    padding: 10px 60px; /* Altere o primeiro valor de 60px para 20px */
+    padding: 10px 40px 40px 40px; /* REDUZIDO o padding superior para subir a grelha */
     max-width: 1600px;
     margin: 0 auto;
 }
@@ -302,6 +302,7 @@ img, video {
     display: flex;
     justify-content: center;
     align-items: center;
+    aspect-ratio: 3/2;
 }
 
 .portfolio-item img {
@@ -309,7 +310,7 @@ img, video {
     max-height: 100%;
     width: auto;
     height: auto;
-    object-fit: contain;
+    object-fit: cover;
     display: block;
     transition: transform 0.5s ease;
 }
@@ -361,7 +362,7 @@ video::-webkit-media-controls-enclosure {
 /* --- NAVEGAÇÃO SECUNDÁRIA --- */
 .nav-navigation {
     text-align: right;
-    padding-top: 15px;
+    padding-top: 10px;
     margin-bottom: 5px;
     padding-right: 40px;
 }
