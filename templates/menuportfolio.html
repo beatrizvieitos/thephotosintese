@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <title>The Photo Síntese - Portfolio de {{ categoria.capitalize() }}</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/img/logo.png') }}">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-container">
+            <!-- LOGO PRINCIPAL (DESKTOP) -->
+            <div class="logo">
+                <a href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="Logo" class="logo-img">
+                </a>
+            </div>
+            
+            <!-- MENU PRINCIPAL -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('sobre') }}">Sobre Nós</a></li>
+                <li><a href="{{ url_for('menu_categorias', categoria='fotografia') }}">Portfolio Fotografia</a></li>
+                <li><a href="{{ url_for('menu_categorias', categoria='video') }}">Portfolio Vídeo</a></li>
+                <li><a href="{{ url_for('contactos') }}">Contacte-nos</a></li>
+            </ul>
+            
+            <!-- ÍCONES SOCIAIS (DESKTOP) -->
+            <div class="social-icons-header">
+                <a href="https://www.instagram.com/thephoto.sintese/" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ url_for('static', filename='assets/img/insta.png') }}" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/beatrizvieitosfotografia/" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ url_for('static', filename='assets/img/facebook.png') }}" alt="Facebook">
+                </a>
+            </div>
+            
+            <!-- ELEMENTOS MOBILE -->
+            <div class="mobile-header-left">
+                <div class="mobile-social-icons">
+                    <a href="https://www.instagram.com/thephoto.sintese/" target="_blank" rel="noopener noreferrer">
+                        <img src="{{ url_for('static', filename='assets/img/insta.png') }}" alt="Instagram">
+                    </a>
+                    <a href="https://www.facebook.com/beatrizvieitosfotografia/" target="_blank" rel="noopener noreferrer">
+                        <img src="{{ url_for('static', filename='assets/img/facebook.png') }}" alt="Facebook">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mobile-header-center">
+                <div class="logo">
+                    <a href="{{ url_for('home') }}">
+                        <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="Logo" class="logo-img">
+                    </a>
+                </div>
+            </div>
+            
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </nav>
+    </header>
+    
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+    </script>
+    
+    <div class="nav-navigation">
+        <a href="{{ url_for('home') }}" class="back-link">← Voltar à Home</a>
+    </div>
+
+    <section class="portfolio-header">
+        <h1>Portfolio de {{ categoria.capitalize() }}</h1>
+    </section>
+    
+    <section class="portfolio-grid">
+        {% for subcategoria, info in dados.items() %}
+        <div class="portfolio-item">
+            <a href="{{ url_for('ver_trabalhos', categoria=categoria, subcategoria=subcategoria) }}">
+                <img src="{{ url_for('static', filename='assets/img/' + info.capa) }}" alt="{{ subcategoria|replace('-', ' ')|title }}">
+                <div class="item-overlay">
+                    <span>{{ subcategoria|replace('-', ' ')|title }}</span>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </section>
+
+    <footer class="main-footer">
+        &copy; 2023 The Photo Síntese. Todos os direitos reservados.
+    </footer>
+</body>
+</html>

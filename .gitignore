@@ -1,0 +1,15 @@
+# Ambientes Virtuais
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Media pesado (Opcional - ver nota abaixo)
+# static/assets/videos/

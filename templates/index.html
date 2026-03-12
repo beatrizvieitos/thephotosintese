@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Photo Síntese - Fotografia & Vídeo</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/img/logo.png') }}" 
+        type="image/x-icon">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-container">
+            <!-- LOGO PRINCIPAL (DESKTOP) -->
+            <div class="logo">
+                <a href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="Logo" class="logo-img">
+                </a>
+            </div>
+            
+            <!-- MENU PRINCIPAL -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('sobre') }}">Sobre Nós</a></li>
+                <li><a href="{{ url_for('menu_categorias', categoria='fotografia') }}">Portfolio Fotografia</a></li>
+                <li><a href="{{ url_for('menu_categorias', categoria='video') }}">Portfolio Vídeo</a></li>
+                <li><a href="{{ url_for('contactos') }}">Contacte-nos</a></li>
+            </ul>
+            
+            <!-- ÍCONES SOCIAIS (DESKTOP) -->
+            <div class="social-icons-header">
+                <a href="https://www.instagram.com/thephoto.sintese/" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ url_for('static', filename='assets/img/insta.png') }}" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/beatrizvieitosfotografia/" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ url_for('static', filename='assets/img/facebook.png') }}" alt="Facebook">
+                </a>
+            </div>
+            
+            <!-- ELEMENTOS MOBILE -->
+            <div class="mobile-header-left">
+                <div class="mobile-social-icons">
+                    <a href="https://www.instagram.com/thephoto.sintese/" target="_blank" rel="noopener noreferrer">
+                        <img src="{{ url_for('static', filename='assets/img/insta.png') }}" alt="Instagram">
+                    </a>
+                    <a href="https://www.facebook.com/beatrizvieitosfotografia/" target="_blank" rel="noopener noreferrer">
+                        <img src="{{ url_for('static', filename='assets/img/facebook.png') }}" alt="Facebook">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mobile-header-center">
+                <div class="logo">
+                    <a href="{{ url_for('home') }}">
+                        <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="Logo" class="logo-img">
+                    </a>
+                </div>
+            </div>
+            
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </nav>
+    </header>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+    </script>
+    
+    <section class="portfolio-header"> 
+        <div class="hero-slideshow">
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero1.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero2.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero3.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero4.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero5.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero6.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero7.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero8.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero9.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero10.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero11.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero12.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero13.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero14.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero15.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero16.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero17.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero18.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero19.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero20.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero21.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero22.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero23.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero24.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero25.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero26.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero27.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero28.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero29.jpg') }});"></div>
+            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero30.jpg') }});"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <h3>Eternizamos os seus momentos juntos.</h3>
+        <p1 class="subtitle">Fotografia & Vídeo</p1>
+    </section>
+    
+    <p class="espaco"></p>
+    <p></p>
+
+    <div class="header2">   
+        <h2>O Que Fazemos?</h2>
+    </div>
+    
+    <section id="portfolio" class="portfolio-grid">
+        <div class="portfolio-item">
+            <img src="{{ url_for('static', filename='assets/img/weddings.png') }}" alt="Casamentos">
+            <div class="item-overlay">
+                <span>Casamentos</span>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="{{ url_for('static', filename='assets/img/bapti.jpg') }}" alt="Batizados">
+            <div class="item-overlay">
+                <span>Batizados</span>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="{{ url_for('static', filename='assets/img/events.jpg') }}" alt="Eventos">
+            <div class="item-overlay">
+                <span>Eventos</span>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="{{ url_for('static', filename='assets/img/festaanos.jpg') }}" alt="Festas de Aniversário">
+            <div class="item-overlay">
+                <span>Festas de Aniversário</span>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="{{ url_for('static', filename='assets/img/espet.jpg') }}" alt="Espetáculos e Concertos">
+            <div class="item-overlay">
+                <span>Espetáculos e Concertos</span>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="{{ url_for('static', filename='assets/img/corporativo.jpg') }}" alt="Eventos Corporativos">
+            <div class="item-overlay">
+                <span>Eventos Corporativos</span>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="{{ url_for('static', filename='assets/img/sessoesfoto.jpg') }}" alt="Sessões Fotográficas">
+            <div class="item-overlay">
+                <span>Sessões Fotográficas</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="header2 e-mais">   
+        <h3>E mais...</h3>
+    </div>
+
+    <footer class="main-footer">
+        &copy; 2023 The Photo Síntese. Todos os direitos reservados.
+    </footer>
+</body>
+</html>

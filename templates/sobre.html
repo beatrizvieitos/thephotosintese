@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <title>Sobre Nós - The Photo Síntese</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/img/logo.png') }}" type="image/x-icon">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-container">
+            <!-- LOGO PRINCIPAL (DESKTOP) -->
+            <div class="logo">
+                <a href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="Logo" class="logo-img">
+                </a>
+            </div>
+            
+            <!-- MENU PRINCIPAL -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('menu_categorias', categoria='fotografia') }}">Portfolio Fotografia</a></li>
+                <li><a href="{{ url_for('menu_categorias', categoria='video') }}">Portfolio Vídeo</a></li>
+                <li><a href="{{ url_for('sobre') }}">Sobre Nós</a></li>
+                <li><a href="{{ url_for('contactos') }}">Contacte-nos</a></li>
+            </ul>
+            
+            <!-- ÍCONES SOCIAIS (DESKTOP) -->
+            <div class="social-icons-header">
+                <a href="https://www.instagram.com/thephoto.sintese/" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ url_for('static', filename='assets/img/insta.png') }}" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/beatrizvieitosfotografia/" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ url_for('static', filename='assets/img/facebook.png') }}" alt="Facebook">
+                </a>
+            </div>
+            
+            <!-- ELEMENTOS MOBILE -->
+            <div class="mobile-header-left">
+                <div class="mobile-social-icons">
+                    <a href="https://www.instagram.com/thephoto.sintese/" target="_blank" rel="noopener noreferrer">
+                        <img src="{{ url_for('static', filename='assets/img/insta.png') }}" alt="Instagram">
+                    </a>
+                    <a href="https://www.facebook.com/beatrizvieitosfotografia/" target="_blank" rel="noopener noreferrer">
+                        <img src="{{ url_for('static', filename='assets/img/facebook.png') }}" alt="Facebook">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mobile-header-center">
+                <div class="logo">
+                    <a href="{{ url_for('home') }}">
+                        <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="Logo" class="logo-img">
+                    </a>
+                </div>
+            </div>
+            
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </nav>
+    </header>
+    
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+    </script>
+
+    <main class="page-container">
+        <h1 class="page-title">Sobre Nós</h1>
+        
+        <p class="sobre-texto">
+            The Photo Síntese nasceu da nossa paixão por eternizar momentos e contar histórias através das lentes. 
+            Acreditamos que cada momento e evento é único e merece ser registado com sensibilidade, atenção ao detalhe e emoção. 
+            O nosso objetivo não é apenas tirar fotografias ou gravar vídeos, mas sim capturar a verdadeira 
+            essência da espontaneadade das vossas interações, olhares, sorrisos, abraços e celebrações para que possam ser revividos para sempre.
+        </p>
+
+        <div class="equipa-grid">
+            <div class="membro">
+                <img src="{{ url_for('static', filename='assets/img/bea.jpg') }}" alt="Beatriz Vieitos" class="membro-foto">
+                <h3>Bea Vieitos</h3>
+                <p>
+                    Fotógrafa e videógrafa, apaixonada por capturar cada detalhe mais espontâneo de cada momento. 
+                    Com um olhar atento para a emoção verdadeira e o lado humano das coisas e um trabalho e sentido estético 
+                    diferenciado pelo carinho e relação criada com o cliente, acredita sempre que criar memórias é mais do que 
+                    aparecer e clicar no botão da câmara, é estar presente e envolver-se em cada momento registado.
+                </p>
+            </div>
+            
+            <div class="membro">
+                <img src="{{ url_for('static', filename='assets/img/carol.jpg') }}" alt="Carolina Saraiva" class="membro-foto">
+                <h3>Carolina Saraiva</h3>
+                <p>
+                    Fotógrafa e assistente de vídeo, o seu foco é sempre transformar os vossos dias e momentos mais felizes 
+                    em narrativas fotográficas que aquecem o coração e demonstram a emoção vivida naquele segundo, naquele momento 
+                    do "clique". A relação que cria com o cliente é sempre próxima e é elogiada por "deixar sempre todos à vontade", 
+                    o que faz com que o resultado final seja sempre tão bonito, íntimo e natural.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        &copy; 2023 The Photo Síntese. Todos os direitos reservados.
+    </footer>
+</body>
+</html>

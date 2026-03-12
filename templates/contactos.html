@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <title>Contactos - The Photo Síntese</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/img/logo.png') }}" type="image/x-icon">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-container">
+            <!-- LOGO PRINCIPAL (DESKTOP) -->
+            <div class="logo">
+                <a href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="Logo" class="logo-img">
+                </a>
+            </div>
+            
+            <!-- MENU PRINCIPAL -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('menu_categorias', categoria='fotografia') }}">Portfolio Fotografia</a></li>
+                <li><a href="{{ url_for('menu_categorias', categoria='video') }}">Portfolio Vídeo</a></li>
+                <li><a href="{{ url_for('sobre') }}">Sobre Nós</a></li>
+                <li><a href="{{ url_for('contactos') }}">Contacte-nos</a></li>
+            </ul>
+            
+            <!-- ÍCONES SOCIAIS (DESKTOP) -->
+            <div class="social-icons-header">
+                <a href="https://www.instagram.com/thephoto.sintese/" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ url_for('static', filename='assets/img/insta.png') }}" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/beatrizvieitosfotografia/" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ url_for('static', filename='assets/img/facebook.png') }}" alt="Facebook">
+                </a>
+            </div>
+            
+            <!-- ELEMENTOS MOBILE -->
+            <div class="mobile-header-left">
+                <div class="mobile-social-icons">
+                    <a href="https://www.instagram.com/thephoto.sintese/" target="_blank" rel="noopener noreferrer">
+                        <img src="{{ url_for('static', filename='assets/img/insta.png') }}" alt="Instagram">
+                    </a>
+                    <a href="https://www.facebook.com/beatrizvieitosfotografia/" target="_blank" rel="noopener noreferrer">
+                        <img src="{{ url_for('static', filename='assets/img/facebook.png') }}" alt="Facebook">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mobile-header-center">
+                <div class="logo">
+                    <a href="{{ url_for('home') }}">
+                        <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="Logo" class="logo-img">
+                    </a>
+                </div>
+            </div>
+            
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </nav>
+    </header>
+    
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+    </script>
+
+    <main class="page-container">
+        <h1 class="page-title">Fale Connosco</h1>
+        
+        <p class="sobre-texto">
+            Gostava de ter The Photo Síntese no seu evento? Tem alguma dúvida sobre os nossos serviços? 
+            Entre em contacto connosco através dos meios abaixo, para mais informações e pedidos de orçamento. 
+            Teremos todo o gosto em ajudar a eternizar o seu momento.
+        </p>
+
+        <div class="contacto-info">
+            <p><strong>Email:</strong> <a href="mailto:thephotosintese@gmail.com">thephotosintese@gmail.com</a></p>
+            <p><strong>Telefone:</strong> +351 938284540</p>
+            <p>
+                <strong>Redes Sociais:</strong> 
+                <a href="https://www.instagram.com/thephoto.sintese/" target="_blank">Instagram</a> | 
+                <a href="https://www.facebook.com/beatrizvieitosfotografia/" target="_blank">Facebook</a>
+            </p>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        &copy; 2023 The Photo Síntese. Todos os direitos reservados.
+    </footer>
+</body>
+</html>

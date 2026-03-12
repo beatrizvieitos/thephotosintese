@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <title>The Photo Síntese - {{ subcategoria|replace('-', ' ')|title }}</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/img/logo.png') }}">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-container">
+            <!-- LOGO PRINCIPAL (DESKTOP) -->
+            <div class="logo">
+                <a href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="Logo" class="logo-img">
+                </a>
+            </div>
+            
+            <!-- MENU PRINCIPAL -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('sobre') }}">Sobre Nós</a></li>
+                <li><a href="{{ url_for('menu_categorias', categoria='fotografia') }}">Portfolio Fotografia</a></li>
+                <li><a href="{{ url_for('menu_categorias', categoria='video') }}">Portfolio Vídeo</a></li>
+                <li><a href="{{ url_for('contactos') }}">Contacte-nos</a></li>
+            </ul>
+            
+            <!-- ÍCONES SOCIAIS (DESKTOP) -->
+            <div class="social-icons-header">
+                <a href="https://www.instagram.com/thephoto.sintese/" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ url_for('static', filename='assets/img/insta.png') }}" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/beatrizvieitosfotografia/" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ url_for('static', filename='assets/img/facebook.png') }}" alt="Facebook">
+                </a>
+            </div>
+            
+            <!-- ELEMENTOS MOBILE -->
+            <div class="mobile-header-left">
+                <div class="mobile-social-icons">
+                    <a href="https://www.instagram.com/thephoto.sintese/" target="_blank" rel="noopener noreferrer">
+                        <img src="{{ url_for('static', filename='assets/img/insta.png') }}" alt="Instagram">
+                    </a>
+                    <a href="https://www.facebook.com/beatrizvieitosfotografia/" target="_blank" rel="noopener noreferrer">
+                        <img src="{{ url_for('static', filename='assets/img/facebook.png') }}" alt="Facebook">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mobile-header-center">
+                <div class="logo">
+                    <a href="{{ url_for('home') }}">
+                        <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="Logo" class="logo-img">
+                    </a>
+                </div>
+            </div>
+            
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </nav>
+    </header>
+    
+    <script>
+    function toggleMenu() {
+        document.getElementById('navLinks').classList.toggle('active');
+    }
+    
+    // Garantir que os vídeos funcionam em mobile
+    document.addEventListener('DOMContentLoaded', function() {
+        const videos = document.querySelectorAll('video');
+        videos.forEach(video => {
+            // Garantir que os controlos estão ativados
+            video.controls = true;
+            video.setAttribute('controls', 'true');
+            
+            // Configurações para mobile
+            video.setAttribute('playsinline', 'true');
+            video.setAttribute('webkit-playsinline', 'true');
+            video.setAttribute('x5-playsinline', 'true');
+            
+            // Forçar a atualização dos controlos
+            video.load();
+            
+            // Debug
+            console.log('Vídeo configurado:', video);
+            
+            // Se o vídeo tiver erro, tentar recarregar
+            video.addEventListener('error', function(e) {
+                console.log('Erro no vídeo, a recarregar...', e);
+                setTimeout(() => {
+                    video.load();
+                }, 1000);
+            });
+            
+            // Garantir que o play funciona ao tocar
+            video.addEventListener('touchstart', function(e) {
+                e.stopPropagation();
+            }, { passive: true });
+        });
+    });
+</script>
+    
+    <div class="nav-navigation">
+        <a href="{{ url_for('menu_categorias', categoria=categoria) }}" class="back-link">
+            ← Voltar ao Portfolio de {{ categoria.capitalize() }}
+        </a>
+    </div>
+
+    <section class="portfolio-header">
+        <h1>{{ subcategoria|replace('-', ' ')|title }}</h1>
+    </section>
+    
+    <section class="portfolio-grid">
+        {% if itens %}
+            {% for item in itens %}
+            <div class="portfolio-item">
+                {% if tipo == 'video' %}
+                    <video 
+                        controls 
+                        playsinline 
+                        webkit-playsinline="true" 
+                        x5-playsinline="true" 
+                        preload="metadata" 
+                        class="video-content"
+                        {% if item.poster %}poster="{{ item.poster }}"{% endif %}
+                    >
+                        <source src="{{ item.imagem }}" type="video/mp4">
+                        O seu navegador não suporta vídeos.
+                    </video>
+                {% else %}
+                    <img src="{{ item.imagem }}" alt="{{ item.titulo }}">
+                {% endif %}
+                
+                <div class="item-overlay">
+                    <h3>{{ item.titulo }}</h3>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="no-items">
+                <p>Nenhum trabalho encontrado nesta categoria.</p>
+            </div>
+        {% endif %}
+    </section>
+
+    <footer class="main-footer">
+        &copy; 2023 The Photo Síntese. Todos os direitos reservados.
+    </footer>
+</body>
+</html>
