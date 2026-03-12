@@ -145,9 +145,9 @@ img, video {
 .portfolio-header {
     position: relative;
     overflow: hidden;
-    color: var(--white);
+    color: rgb(33, 32, 32);
     margin-top: 0;
-    padding: 250px 40px;
+    padding: 200px 40px; /* Altere de 250px para 100px (ou menos se desejar) */
     text-align: center;
 }
 
@@ -223,24 +223,25 @@ img, video {
 .portfolio-header h3 {
     font-size: 3.4rem;
     color: rgb(233, 224, 215);
-    margin-top: 10px;
+    margin-top: 10px 0;
     font-weight: bold;
 }
 
 .portfolio-header p1 {
     font-size: 1.6rem;
     color: rgb(233, 224, 215);
-    margin-top: 10px;
+    margin-top: 10px 0;
     font-weight: 300;
     letter-spacing: 2px;
+    display: block;
 }
 
 /* --- SEÇÃO HEADER2 --- */
 .header2 {
     text-align: center;
     width: 100%;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 5px;    /* Reduza de 30px para 10px */
+    margin-bottom: 5px; /* Reduza de 30px para 10px */
 }
 
 .header2 h2 {
@@ -252,6 +253,7 @@ img, video {
     position: relative;
     display: inline-block;
     padding-bottom: 15px;
+    margin: 20px 0; /* Adicione esta linha */
 }
 
 .header2 h2::after {
@@ -270,6 +272,7 @@ img, video {
     font-size: 1.3rem;
     font-weight: bold;
     text-align: center;
+    margin: 10px 0; /* Adicione esta linha */
 }
 
 .header2.e-mais {
@@ -286,7 +289,7 @@ img, video {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 3px;
     background-color: transparent;
-    padding: 60px 60px;
+    padding: 10px 60px; /* Altere o primeiro valor de 60px para 20px */
     max-width: 1600px;
     margin: 0 auto;
 }
