@@ -64,40 +64,58 @@
     function toggleMenu() {
         document.getElementById('navLinks').classList.toggle('active');
     }
-    
-    // Garantir que os vídeos funcionam em mobile
-    document.addEventListener('DOMContentLoaded', function() {
-        const videos = document.querySelectorAll('video');
-        videos.forEach(video => {
-            // Garantir que os controlos estão ativados
-            video.controls = true;
-            video.setAttribute('controls', 'true');
-            
-            // Configurações para mobile
-            video.setAttribute('playsinline', 'true');
-            video.setAttribute('webkit-playsinline', 'true');
-            video.setAttribute('x5-playsinline', 'true');
-            
-            // Forçar a atualização dos controlos
-            video.load();
-            
-            // Debug
-            console.log('Vídeo configurado:', video);
-            
-            // Se o vídeo tiver erro, tentar recarregar
-            video.addEventListener('error', function(e) {
-                console.log('Erro no vídeo, a recarregar...', e);
-                setTimeout(() => {
-                    video.load();
-                }, 1000);
-            });
-            
-            // Garantir que o play funciona ao tocar
-            video.addEventListener('touchstart', function(e) {
-                e.stopPropagation();
-            }, { passive: true });
-        });
+
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.main-header');
+        // window.pageYOffset é mais compatível com browsers antigos/mobile
+        const scrollPos = window.scrollY || window.pageYOffset;
+
+        if (scrollPos > 70) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
     });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const videos = document.querySelectorAll('video');
+            
+            videos.forEach(video => {
+                const container = video.closest('.portfolio-item');
+
+                // Configurações críticas para funcionamento Mobile (iOS/Android)
+                video.setAttribute('playsinline', 'true');
+                video.setAttribute('webkit-playsinline', 'true');
+                video.controls = true;
+                video.preload = "metadata";
+
+                // Lógica de "Loop": Adicionar/Remover classe conforme o estado
+                video.addEventListener('play', () => {
+                    container.classList.add('is-playing');
+                });
+
+                video.addEventListener('pause', () => {
+                    container.classList.remove('is-playing');
+                });
+
+                video.addEventListener('ended', () => {
+                    container.classList.remove('is-playing');
+                });
+
+                // Detetar saída de ecrã cheio nativo no iPhone
+                video.addEventListener('webkitendfullscreen', () => {
+                    if (video.paused) {
+                        container.classList.remove('is-playing');
+                    }
+                });
+
+                // Garantir que o toque inicial funciona bem em mobile
+                video.addEventListener('touchstart', function(e) {
+                    e.stopPropagation();
+                }, { passive: true });
+            });
+        });
 </script>
     
 
@@ -106,7 +124,7 @@
         <h1>{{ subcategoria|replace('-', ' ')|title }}</h1>
     </section>
     
-    <section class="portfolio-grid">
+    <section class="portfolio-grid {% if tipo == 'fotografia' %}gallery-photos{% endif %}">
         {% if itens %}
             {% for item in itens %}
             <div class="portfolio-item">
@@ -116,7 +134,7 @@
                         playsinline 
                         webkit-playsinline="true" 
                         x5-playsinline="true" 
-                        preload="metadata" 
+                        preload="none"
                         class="video-content"
                         {% if item.poster %}poster="{{ item.poster }}"{% endif %}
                     >

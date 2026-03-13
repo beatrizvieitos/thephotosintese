@@ -61,10 +61,22 @@
     </header>
     
     <script>
-        function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
+    function toggleMenu() {
+        document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.main-header');
+        // window.pageYOffset é mais compatível com browsers antigos/mobile
+        const scrollPos = window.scrollY || window.pageYOffset;
+
+        if (scrollPos > 70) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
         }
-    </script>
+    });
+</script>
 
     <main class="page-container">
         <h1 class="page-title">Sobre Nós</h1>

@@ -61,11 +61,22 @@
     </header>
     
     <script>
-        function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
+    function toggleMenu() {
+        document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.main-header');
+        // window.pageYOffset é mais compatível com browsers antigos/mobile
+        const scrollPos = window.scrollY || window.pageYOffset;
+
+        if (scrollPos > 70) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
         }
-    </script>
-    
+    });
+</script>
  
 
     <section class="portfolio-header">
@@ -76,7 +87,9 @@
         {% for subcategoria, info in dados.items() %}
         <div class="portfolio-item">
             <a href="{{ url_for('ver_trabalhos', categoria=categoria, subcategoria=subcategoria) }}">
-                <img src="{{ url_for('static', filename='assets/img/' + info.capa) }}" alt="{{ subcategoria|replace('-', ' ')|title }}">
+                <img src="https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_800/{{ info.capa }}" 
+                alt="{{ subcategoria|replace('-', ' ')|title }}" 
+                loading="lazy">
                 <div class="item-overlay">
                     <span>{{ subcategoria|replace('-', ' ')|title }}</span>
                 </div>

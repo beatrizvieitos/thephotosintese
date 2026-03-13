@@ -62,48 +62,46 @@
     </header>
 
     <script>
-        function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
+    function toggleMenu() {
+        document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.main-header');
+        // window.pageYOffset é mais compatível com browsers antigos/mobile
+        const scrollPos = window.scrollY || window.pageYOffset;
+
+        if (scrollPos > 70) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
         }
-    </script>
+    });
+</script>
     
     <section class="portfolio-header" id="hero-home">
-        <div class="hero-slideshow">
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero1.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero2.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero3.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero4.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero5.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero6.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero7.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero8.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero9.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero10.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero11.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero12.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero13.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero14.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero15.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero16.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero17.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero18.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero19.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero20.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero21.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero22.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero23.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero24.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero25.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero26.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero27.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero28.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero29.jpg') }});"></div>
-            <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero30.jpg') }});"></div>
+    <div class="hero-slideshow">
+        <div class="hero-slide" style="background-image: url(https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773398935/hero18.jpg);"></div>
+        <div class="hero-slide" style="background-image: url('https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773398945/hero5.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773399194/hero26.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773398948/hero22.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773398938/hero19.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773398938/hero15.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773398937/hero16.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773398933/hero17.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773398929/hero1.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773398929/hero2.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773398932/hero14.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773398937/hero16.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773399191/hero28.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773398929/hero2.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773398931/hero9.jpg');"></div>
         </div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <p class="frase-destaque">Eternizamos os seus momentos juntos.</p>
-        </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <p class="frase-destaque">Eternizamos os seus momentos juntos.</p>
+    </div>
+</section>
 
     </section>
     
@@ -115,43 +113,43 @@
     
     <section id="portfolio" class="portfolio-grid">
         <div class="portfolio-item">
-            <img src="{{ url_for('static', filename='assets/img/weddings.png') }}" alt="Casamentos">
+            <img src="https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773399615/weddings.jpg" alt="Casamentos" loading="lazy">
             <div class="item-overlay">
                 <span>Casamentos</span>
             </div>
         </div>
         <div class="portfolio-item">
-            <img src="{{ url_for('static', filename='assets/img/bapti.jpg') }}" alt="Batizados">
+            <img src="https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773399516/bapti.jpg" alt="Baptizados" loading="lazy">
             <div class="item-overlay">
                 <span>Batizados</span>
             </div>
         </div>
         <div class="portfolio-item">
-            <img src="{{ url_for('static', filename='assets/img/events.jpg') }}" alt="Eventos">
+            <img src="https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773399516/events.jpg" alt="Casamentos" loading="lazy">
             <div class="item-overlay">
                 <span>Eventos</span>
             </div>
         </div>
         <div class="portfolio-item">
-            <img src="{{ url_for('static', filename='assets/img/festaanos.jpg') }}" alt="Festas de Aniversário">
+            <img src="https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773409652/festadeanos.jpg" alt="Festas de Aniversário" loading="lazy">
             <div class="item-overlay">
                 <span>Festas de Aniversário</span>
             </div>
         </div>
         <div class="portfolio-item">
-            <img src="{{ url_for('static', filename='assets/img/espet.jpg') }}" alt="Espetáculos e Concertos">
+            <img src="https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773399514/espet.jpg" alt="Espetáculos e Concertos" loading="lazy">
             <div class="item-overlay">
                 <span>Espetáculos e Concertos</span>
             </div>
         </div>
         <div class="portfolio-item">
-            <img src="{{ url_for('static', filename='assets/img/corporativo.jpg') }}" alt="Eventos Corporativos">
+            <img src="https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773399509/corporativo.jpg" alt="Eventos Corporativos" loading="lazy">
             <div class="item-overlay">
                 <span>Eventos Corporativos</span>
             </div>
         </div>
         <div class="portfolio-item">
-            <img src="{{ url_for('static', filename='assets/img/sessoesfoto.jpg') }}" alt="Sessões Fotográficas">
+            <img src="https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773399514/sessoesfoto.jpg" alt="Sessões Fotográficas" loading="lazy">
             <div class="item-overlay">
                 <span>Sessões Fotográficas</span>
             </div>
