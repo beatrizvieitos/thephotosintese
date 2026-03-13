@@ -383,6 +383,7 @@ body {
     letter-spacing: 1px;
     transform: translateY(0); /* Mudado de 20px para 0 para o texto não subir */
     transition: transform 0.3s ease;
+    text-align: center;
 }
 
 /* Quando o contentor tiver a classe 'is-playing', escondemos o overlay */
@@ -563,6 +564,31 @@ body {
     transform: translateY(0);
 }
 
+/* --- BOTÃO VOLTAR (DISCRETO) --- */
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-light); /* Cor cinza discreta */
+    font-size: 0.85rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.back-btn:hover {
+    color: var(--accent-dark); /* Ganha cor ao passar o rato */
+}
+
+/* Ajuste específico para garantir que o botão não fica "esmagado" no mobile */
+@media screen and (max-width: 768px) {
+    .back-btn {
+        font-size: 0.75rem;
+        margin-bottom: 5px;
+    }
+}
 
 
 
@@ -608,7 +634,8 @@ body {
         display: flex !important;
         align-items: center;
         justify-content: flex-start;
-        width: 50px;
+        width: 80px;
+        flex: 0 0 80px !important;
         order: 1;
     }
     
@@ -616,6 +643,7 @@ body {
         display: flex !important;
         flex-direction: column;
         gap: 8px;
+        margin-left: 15px;
     }
     
     .mobile-social-icons a img {
@@ -626,8 +654,8 @@ body {
     
     .mobile-header-center {
         display: flex !important;
-        justify-content: center;
-        align-items: center;
+        justify-content: center !important;
+        align-items: center !important;
         order: 2;
         flex: 1;
     }
@@ -654,13 +682,15 @@ body {
     .menu-toggle {
         display: block !important;
         order: 3;
-        width: 50px !important;
+        width: 80px !important;
+        flex: 0 0 80px !important;
         text-align: right;
         background: none;
         border: none;
         font-size: 32px;
         color: var(--text-dark);
         padding: 0;
+        margin-right: 15px;
     }
     
     .nav-links {
@@ -847,7 +877,26 @@ body {
         word-wrap: break-word !important;
     }
 
-    
+    /* Ajuste de alinhamento para textos longos no overlay mobile */
+    .item-overlay {
+        display: flex !important;
+        flex-direction: column !important; /* Garante o empilhamento */
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important; /* Alinha o contentor */
+        padding: 15px !important;      /* Evita que o texto bata nas bordas */
+        box-sizing: border-box !important;
+    }
+
+    .item-overlay span, 
+    .item-overlay h3 {
+        display: block !important;    /* Força o span a comportar-se como bloco */
+        width: 100% !important;       /* Garante que ocupa a largura toda para centrar */
+        text-align: center !important; /* Centra as linhas de texto entre si */
+        margin: 0 !important;
+        padding: 0 !important;
+        white-space: normal !important; /* Garante que o texto quebra se for longo */
+    }
 
     /* Footer mobile */
     .main-footer {

@@ -122,6 +122,7 @@
 
     <section class="portfolio-header">
         <h1>{{ subcategoria|replace('-', ' ')|title }}</h1>
+        <a href="{{ url_for('menu_categorias', categoria=categoria) }}" class="back-btn">← Voltar ao Portfolio</a>
     </section>
     
     <section class="portfolio-grid {% if tipo == 'fotografia' %}gallery-photos{% endif %}">
