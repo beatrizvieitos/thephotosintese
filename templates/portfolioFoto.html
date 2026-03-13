@@ -100,11 +100,7 @@
     });
 </script>
     
-    <div class="nav-navigation">
-        <a href="{{ url_for('menu_categorias', categoria=categoria) }}" class="back-link">
-            ← Voltar ao Portfolio de {{ categoria.capitalize() }}
-        </a>
-    </div>
+
 
     <section class="portfolio-header">
         <h1>{{ subcategoria|replace('-', ' ')|title }}</h1>

@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>The Photo Síntese - Fotografia & Vídeo</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='assets/img/logo.png') }}" 
         type="image/x-icon">
@@ -67,7 +67,7 @@
         }
     </script>
     
-    <section class="portfolio-header"> 
+    <section class="portfolio-header" id="hero-home">
         <div class="hero-slideshow">
             <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero1.jpg') }});"></div>
             <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero2.jpg') }});"></div>
@@ -101,12 +101,13 @@
             <div class="hero-slide" style="background-image: url({{ url_for('static', filename='assets/img/hero30.jpg') }});"></div>
         </div>
         <div class="hero-overlay"></div>
-        <h3>Eternizamos os seus momentos juntos.</h3>
-        <p1 class="subtitle">Fotografia & Vídeo</p1>
+        <div class="hero-content">
+            <p class="frase-destaque">Eternizamos os seus momentos juntos.</p>
+        </div>
+
     </section>
     
     <p class="espaco"></p>
-    <p></p>
 
     <div class="header2">   
         <h2>O Que Fazemos?</h2>

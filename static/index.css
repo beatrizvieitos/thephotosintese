@@ -1,4 +1,3 @@
-/* --- MEDIA QUERIES - APENAS PARA TELEMÓVEL --- */
 /* --- VARIÁVEIS GLOBAIS --- */
 :root {
     --primary-bg: #e5d7c4;
@@ -20,9 +19,9 @@
 }
 
 html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
 }
 
 body {
@@ -141,24 +140,19 @@ img, video {
     display: none;
 }
 
-/* --- HERO SECTION COM CARROSSEL --- */
+/* ========== HERO SECTION ========== */
 .portfolio-header {
     position: relative;
     overflow: hidden;
     color: var(--white);
     margin-top: 0;
-    padding: 150px 40px; /* REDUZIDO: de 250px para 80px para diminuir o espaço inicial */
+    padding: 60px 40px;  /* VALOR ORIGINAL - não mexe */
     text-align: center;
 }
 
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--overlay-dark);
-    z-index: -1;
+/* Hero da página inicial (com slideshow) */
+#hero-home {
+    min-height: 500px;
 }
 
 .hero-slideshow {
@@ -178,6 +172,35 @@ img, video {
     background-position: center;
     opacity: 0;
     animation: fadeAnim 15s infinite;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000082;
+    z-index: -1;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+}
+
+.frase-destaque {
+    font-size: 3.5rem; 
+    color: rgb(220, 214, 207);
+    font-weight: bold; 
+    letter-spacing: 2px;
+    display: block;
+    text-align: center;
 }
 
 /* Animações do carrossel */
@@ -220,40 +243,23 @@ img, video {
     100% { opacity: 0; }
 }
 
-.portfolio-header h3 {
-    font-size: 3.4rem;
-    color: rgb(233, 224, 215);
-    margin: 10px 0; /* REDUZIDO para aproximar os textos */
-    font-weight: bold;
-}
-
-.portfolio-header p1 {
-    font-size: 1.6rem;
-    color: rgb(233, 224, 215);
-    margin-top: 10px 0;
-    font-weight: 300;
-    letter-spacing: 2px;
-    display: block;
-}
-
-/* --- SEÇÃO HEADER2 --- */
+/* --- HEADER2 (títulos) --- */
 .header2 {
     text-align: center;
-    width: 100%;
-    margin-top: 10px;    /* REDUZIDO: de 30px para 10px */
-    margin-bottom: 10px; /* REDUZIDO: de 30px para 10px */
+    margin: 0;  /* ZERA a margem aqui */
+    position: relative;  /* ADICIONA isto */
+    top: -60px;  /* AJUSTA este valor (negativo sobe, positivo desce) */
 }
 
 .header2 h2 {
     font-size: 2.8rem;
-    color: var(--text-dark);
+    color: #dfd7d7;
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 3px;
     position: relative;
     display: inline-block;
     padding-bottom: 10px;
-    margin: 10px 0; /* REDUZIDO */
 }
 
 .header2 h2::after {
@@ -272,12 +278,11 @@ img, video {
     font-size: 1.3rem;
     font-weight: bold;
     text-align: center;
-    margin: 5px 0; /* Adicione esta linha */
+    margin: 5px 0;
 }
 
 .header2.e-mais {
-    margin-top: 0px;
-    margin-bottom: 40px; /* Reduzido para aproximar do footer */
+    margin: 40px 0 20px 0;
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -286,18 +291,17 @@ img, video {
 /* --- GRID DE PORTFÓLIO --- */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* FIXO: 3 colunas no computador */
-    gap: 15px; /* Espaço entre as fotos */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
     background-color: transparent;
-    padding: 10px 40px 40px 40px; /* REDUZIDO o padding superior para subir a grelha */
+    padding: 10px 40px 40px 40px;
     max-width: 1600px;
-    margin: 0 auto;
+    margin: 0 -60px;
 }
 
 .portfolio-item {
     position: relative;
     overflow: hidden;
-    object-fit: contain;
     background-color: var(--primary-bg);
     display: flex;
     justify-content: center;
@@ -305,9 +309,7 @@ img, video {
 }
 
 .portfolio-item img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
+    width: 100%;
     height: auto;
     object-fit: cover;
     display: block;
@@ -341,56 +343,39 @@ img, video {
 
 /* --- VÍDEOS --- */
 .video-content {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
+    width: 100%;
     height: auto;
     object-fit: contain;
     display: block;
-    user-select: none;
 }
 
-video::-internal-media-controls-download-button { 
-    display: none; 
+/* --- PÁGINAS SECUNDÁRIAS (com h1) --- */
+.portfolio-header:has(h1) {
+    padding: 20px 20px 10px 20px;
+    color: #44423f;
 }
 
-video::-webkit-media-controls-enclosure { 
-    overflow: hidden; 
+.portfolio-header h1 {
+    font-size: 2.5rem;
+    margin: 0;
 }
 
-/* --- NAVEGAÇÃO SECUNDÁRIA --- */
-.nav-navigation {
-    text-align: right;
-    padding-top: 10px;
-    margin-bottom: 5px;
-    padding-right: 40px;
+.portfolio-header h3 {
+    font-size: 3.4rem;
+    color: rgb(0, 0, 0);
+    margin: 10px 0;
+    font-weight: bold;
 }
 
-.back-link {
-    display: inline-flex;
-    align-items: center;
-    padding: 6px 12px;
-    background-color: transparent;
-    color: #666;
-    text-decoration: none;
-    font-weight: 400;
-    font-size: 0.9rem;
-    border: 1px solid #b8a692;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.back-link:hover {
-    background-color: var(--accent-color);
-    color: var(--text-dark);
-    border-color: var(--accent-color);
-    transform: translateY(-1px);
+/* Espaço extra da home */
+.espaco {
+    margin-bottom: 0; /* Removido espaço extra */
 }
 
 /* --- PÁGINAS: SOBRE E CONTACTOS --- */
 .page-container {
     max-width: 1000px;
-    margin: 60px auto;
+    margin: 40px auto;
     padding: 0 20px;
     text-align: center;
 }
@@ -406,7 +391,7 @@ video::-webkit-media-controls-enclosure {
     font-size: 1.1rem;
     line-height: 1.8;
     color: #444;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .equipa-grid {
@@ -469,55 +454,57 @@ video::-webkit-media-controls-enclosure {
 /* --- FOOTER --- */
 .main-footer {
     background-color: var(--primary-bg);
-    padding: 20px 20px;
+    padding: 20px;
     text-align: center;
-    border-top: 0px;
     width: 100%;
     margin-top: auto;
-    margin-bottom: 0;
-    flex-shrink: 0;
     font-size: 0.8rem;
     color: var(--text-light);
     letter-spacing: 1px;
     text-transform: uppercase;
 }
 
-/* --- UTILITÁRIOS --- */
-.espaco {
-    margin-bottom: 120px;
-}
-
-/* --- MEDIA QUERIES - APENAS PARA TELEMÓVEL --- */
+/* ========== MEDIA QUERIES - TELEMÓVEL ========== */
 @media screen and (max-width: 768px) {
-    /* Esconder elementos desktop */
+    /* Header mobile */
     .social-icons-header {
         display: none;
     }
     
-    /* Mostrar elementos mobile */
     .mobile-header-left,
     .mobile-header-center,
     .mobile-social-icons {
         display: flex;
     }
-    
-    /* Container do header mobile */
-    .nav-container {
-        min-height: 90px;
-        padding: 5px 15px;
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: var(--header-bg);
+
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
     }
     
-    /* Lado esquerdo - ícones sociais */
+    body {
+        overflow-x: hidden !important;
+        position: relative !important;
+    }
+    
+     .nav-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 5px 10px !important;  /* Reduzir padding lateral */
+        box-sizing: border-box !important;
+    }
+
+     .membro {
+        width: 100% !important;
+        max-width: 280px !important;
+    }
+    
     .mobile-header-left {
         display: flex !important;
         align-items: center;
         justify-content: flex-start;
-        width: 70px;
+        width: 50px;
         order: 1;
     }
     
@@ -533,7 +520,6 @@ video::-webkit-media-controls-enclosure {
         display: block;
     }
     
-    /* Logo central */
     .mobile-header-center {
         display: flex !important;
         justify-content: center;
@@ -549,25 +535,23 @@ video::-webkit-media-controls-enclosure {
     }
     
     .mobile-header-center .logo-img {
-        width: 130px !important;
-        height: 130px !important;
-        max-width: 130px !important;
+        width: 100px !important;
+        height: 100px !important;
+        max-width: 100px !important;
         transform: none !important;
         border-radius: 50% !important;
         object-fit: cover;
         display: block;
     }
     
-    /* Esconder logo original */
     .nav-container > .logo:not(.mobile-header-center .logo) {
         display: none;
     }
     
-    /* Lado direito - botão hambúrguer */
     .menu-toggle {
         display: block !important;
         order: 3;
-        width: 70px;
+        width: 50px !important;
         text-align: right;
         background: none;
         border: none;
@@ -576,7 +560,6 @@ video::-webkit-media-controls-enclosure {
         padding: 0;
     }
     
-    /* Menu dropdown */
     .nav-links {
         display: none;
         position: absolute;
@@ -609,94 +592,58 @@ video::-webkit-media-controls-enclosure {
         border-radius: 0;
     }
     
-    /* AJUSTE: Reduzir margens dos títulos do portfolio */
+    /* Hero mobile */
     .portfolio-header {
-        padding: 60px 20px; /* Ajuste este valor para aumentar/diminuir a altura do Hero */
-        margin-bottom: 0;
+        padding: 40px 20px;
     }
     
-    .portfolio-header h3 {
-        font-size: 1.8rem; /* Reduzido de 3.4rem */
-        margin-bottom: 5px;
+    #hero-home {
+        min-height: 300px;
+        padding: 0;
     }
     
-    .portfolio-header p1 {
-        font-size: 1.1rem; /* Reduzido de 1.6rem */
-        letter-spacing: 1px;
+    .frase-destaque {
+        font-size: 1.4rem !important;
+        padding: 0 10px !important;  /* Adicionar padding nas laterais */
+        word-wrap: break-word !important;
     }
     
-    .portfolio-header h1 {
-        font-size: 2rem;
-        margin: 10px 0; /* Reduzir margem do título */
-    }
-    
-    /* Grid de portfólio */
+    /* Grid mobile */
     .portfolio-grid {
+        display: grid;
         grid-template-columns: 1fr;
-        padding: 10px;
-        gap: 10px;
+        gap: 15px;
+        padding: 10px 40px 40px 40px;
+        width: 100% !important;
+        max-width: 1600px;
+        box-sizing: border-box !important;
+        gap: 8px !important;  /* Espaço pequeno entre as fotos */
+        margin: 0 auto 20px auto;
     }
     
     .portfolio-item {
-        margin: 0;
-        position: relative;
-        overflow: hidden;
-        background-color: var(--primary-bg);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 200px; /* Altura mínima para itens vazios */
-    }
-    
-    .portfolio-item img, 
-    .video-content {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-        display: block;
-    }
-    
-    /* CORREÇÃO DEFINITIVA PARA VÍDEOS EM MOBILE */
-    .video-content {
+        aspect-ratio: 1 / 1 !important;  /* FORÇA QUADRADO PERFEITO */
         width: 100% !important;
-        height: auto !important;
-        max-height: 70vh;
-        background-color: #000;
-        display: block;
-        position: relative;
-        z-index: 20;
+        overflow: hidden !important;
+        margin: 0 !important;
+        border-radius: 8px !important;  /* Cantos ligeiramente arredondados (opcional) */
+    }
+
+    .portfolio-item img {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        object-fit: cover !important;  /* A imagem preenche todo o quadrado */
+    }
+
+    /* Texto "E mais..." */
+    .header2.e-mais {
+        margin-top: 20px !important;
+        margin-bottom: 20px !important;
     }
     
-    /* Garantir que os controlos do vídeo estão sempre no topo */
-    video::-webkit-media-controls {
-        display: flex !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        z-index: 9999 !important;
-        position: relative !important;
-    }
-    
-    video::-webkit-media-controls-panel {
-        display: flex !important;
-        opacity: 1 !important;
-        background: linear-gradient(transparent, rgba(0,0,0,0.8)) !important;
-        z-index: 9999 !important;
-    }
-    
-    video::-webkit-media-controls-play-button,
-    video::-webkit-media-controls-overlay-play-button {
-        display: block !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        pointer-events: auto !important;
-        cursor: pointer !important;
-        z-index: 9999 !important;
-        transform: scale(1.5) !important; /* Botão maior para facilitar o toque */
-    }
-    
-    /* Remover overlay dos vídeos completamente */
+    /* Vídeos mobile */
     .portfolio-item:has(video) {
-        padding: 0;
         background-color: #1a1a1a;
         border-radius: 12px;
         overflow: hidden;
@@ -705,76 +652,80 @@ video::-webkit-media-controls-enclosure {
     }
     
     .portfolio-item:has(video) .item-overlay {
-        display: none !important; /* Forçar remoção do overlay */
+        display: none !important;
     }
     
-    /* Garantir que nada bloqueia o vídeo */
-    .portfolio-item video {
-        position: relative;
-        z-index: 100;
-        pointer-events: auto !important;
-        touch-action: manipulation !important;
+    /* Vídeos */
+    .video-content {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 70vh !important;
     }
     
-    /* Overlay apenas para imagens */
-    .portfolio-item:not(:has(video)) {
-        position: relative;
-    }
-    
-    .portfolio-item:not(:has(video)) .item-overlay {
-        display: flex;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.4);
-        color: white;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: opacity 0.3s;
-        pointer-events: none;
-        z-index: 10;
-    }
-    
-    .portfolio-item:not(:has(video)):hover .item-overlay {
-        opacity: 1;
-    }
-    
-    /* Texto "E mais..." */
-    .header2.e-mais {
-        margin: 10px 0 30px 0;
-    }
-    
-    .header2 {
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-
+    /* Títulos mobile */
     .header2 h2 {
-        font-size: 1.8rem; /* Ajuste de escala para mobile */
+        font-size: 1.8rem !important;
+        white-space: normal !important;  /* Permitir quebra de linha */
+        word-wrap: break-word !important;
+        margin: 0 !important;  /* Remove margens internas */
+        padding: 0 !important;
     }
-      
+    
     .header2 h3 {
         font-size: 1.2rem;
     }
     
-  
+    .portfolio-header h1 {
+        font-size: 1.8rem;
+    }
     
-    /* Footer */
+    .portfolio-header h3 {
+        font-size: 2.2rem;
+    }
+    
+    /* Páginas secundárias mobile */
+    .page-container {
+        margin: 30px auto;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 15px !important;
+        box-sizing: border-box !important;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .equipa-grid {
+        width: 100% !important;
+        gap: 30px !important;
+    }
+    
+    .membro-foto {
+        width: 180px !important;
+        height: 180px !important;
+    }
+
+    .contacto-info {
+        width: 100% !important;
+        word-wrap: break-word !important;
+    }
+    
+    .contacto-info p {
+        width: 100% !important;
+        word-wrap: break-word !important;
+    }
+
+    /* Garantir que links e textos não ultrapassam */
+    a {
+        word-wrap: break-word !important;
+    }
+    
+    /* Footer mobile */
     .main-footer {
-        padding: 15px;
-        font-size: 0.5rem;
-    }
-    
-    video[poster] {
-        object-fit: cover;
-    }
-    
-    /* Ajuste para a navegação secundária */
-    .nav-navigation {
-        padding: 10px 20px;
-        margin-bottom: 0;
+        width: 100% !important;
+        padding: 15px 10px !important;
+        font-size: 0.7rem;
+        box-sizing: border-box !important;
     }
 }

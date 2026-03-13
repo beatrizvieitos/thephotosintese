@@ -14,9 +14,9 @@ CAPAS = {
     'baptizados': 'bapti.jpg',
     'eventos': 'events.jpg',
     'festas de aniversário': 'festaanos.jpg',
-    'espetáculos e Concertos': 'espet.jpg',
+    'espetáculos': 'espet.jpg',
     'eventos corporativos': 'corporativo.jpg',
-    'Sessões Fotográficas': 'sessoes.jpg',
+    'sessões fotográficas': 'sessoesfoto.jpg',
     'os-casamentos': 'wedvideo.jpg',
     'os-baptizados': 'bapvideo.jpg'
 }
@@ -25,20 +25,17 @@ CAPAS = {
 LINKS_VIDEOS = {
     'AnabelaRui.mp4': 'https://res.cloudinary.com/dilatofg5/video/upload/v1773282255/AnabelaRui.mp4',
     'AnaJoao.mp4': 'https://res.cloudinary.com/dilatofg5/video/upload/v1773282236/AnaJoao.mp4',
-    'PatriciaDiogo.mp4': 'https://res.cloudinary.com/dilatofg5/video/upload/v1773282230/PatriciaDiogo.mp4',
-    'VivianeJunior.mp4': 'https://res.cloudinary.com/dilatofg5/video/upload/v1773282229/VivianeJunior.mp4',
+    'PatriciaDiogo.mp4': 'https://res.cloudinary.com/dilatofg5/video/upload/v1773282235/PatriciaDiogo.mp4',
+    'JuniorVivianne.mp4': 'https://res.cloudinary.com/dilatofg5/video/upload/v1773282245/JuniorVivianne.mp4'
 }
 
-# Legendas (vazio por enquanto)
-legendas = {}
-
-# Capas para vídeos (vazio por enquanto)
-CAPAS_VIDEOS = {}
-
-# Constantes para Cloudinary
-CLOUDINARY_IMG_BASE = "https://res.cloudinary.com/dilatofg5/image/upload"
-CLOUDINARY_VID_BASE = "https://res.cloudinary.com/dilatofg5/video/upload"
-
+# Poster/Capa dos vídeos no Cloudinary (imagens)
+CAPAS_VIDEOS = {
+    'AnabelaRui.mp4': 'https://res.cloudinary.com/dilatofg5/image/upload/v1741643231/Anabela_e_Rui_poster.png',
+    'AnaJoao.mp4': 'https://res.cloudinary.com/dilatofg5/image/upload/v1741643231/anaejoao_poster.jpg',
+    'PatriciaDiogo.mp4': 'https://res.cloudinary.com/dilatofg5/image/upload/v1741643231/Patricia_e_Diogo_poster.jpg',
+    'JuniorVivianne.mp4': 'https://res.cloudinary.com/dilatofg5/image/upload/v1741643231/vivianeejunior_poster.jpg'
+}
 
 @app.route('/')
 def home():
@@ -48,67 +45,76 @@ def home():
 
 @app.route('/portfolio/<categoria>')
 def menu_categorias(categoria):
-    """Menu de subcategorias para fotografia ou vídeo"""
+    """Página intermédia que mostra as subcategorias (ex: Casamentos, Baptizados)"""
     
-    # Define as subcategorias para cada tipo de portfolio
-    if categoria == 'fotografia':
-        subcategorias = [
-            'casamentos', 
-            'baptizados', 
-            'eventos', 
-            'espetáculos e Concertos', 
-            'festas de aniversário', 
-            'eventos corporativos', 
-            'Sessões Fotográficas'
-        ]
-    else:  # categoria == 'video'
-        subcategorias = ['os-casamentos', 'os-baptizados']
-    
-    # Prepara os dados para o template
     dados = {}
-    for sub in subcategorias:
-        dados[sub] = {
-            'capa': CAPAS.get(sub, 'default.jpg')
-        }
+    base_folder = IMAGE_FOLDER if categoria == 'fotografia' else VIDEO_FOLDER
     
+    if os.path.exists(base_folder):
+        subcategorias = [d for d in os.listdir(base_folder) if os.path.isdir(os.path.join(base_folder, d))]
+        
+        for sub in subcategorias:
+            capa = CAPAS.get(sub, f"{sub}.jpg") 
+            dados[sub] = {'capa': capa}
+            
     return render_template('menuportfolio.html', categoria=categoria, dados=dados)
 
 
 @app.route('/portfolio/<categoria>/<subcategoria>')
 def ver_trabalhos(categoria, subcategoria):
-    """Exibe os trabalhos (fotos ou vídeos) de uma subcategoria"""
+    """Mostra a grelha de fotos ou vídeos da subcategoria (via Cloudinary)"""
     
-    base_dir = os.path.dirname(os.path.abspath(__file__))
+    # Base URLs para o Cloudinary
+    CLOUDINARY_BASE_IMG = "https://res.cloudinary.com/dilatofg5/image/upload/v1741643231"
+    CLOUDINARY_BASE_VID = "https://res.cloudinary.com/dilatofg5/video/upload/v1741643231"
     
-    # Define a pasta base conforme a categoria
-    if categoria == 'fotografia':
-        base_folder = IMAGE_FOLDER
-        cloudinary_base = CLOUDINARY_IMG_BASE
-    else:
-        base_folder = VIDEO_FOLDER
-        cloudinary_base = CLOUDINARY_VID_BASE
+    # Pasta base dependendo da categoria
+    base_folder = IMAGE_FOLDER if categoria == 'fotografia' else VIDEO_FOLDER
     
-    path = os.path.join(base_dir, base_folder, subcategoria)
+    # Caminho completo para a subcategoria local (usado apenas para saber que ficheiros existem)
+    path = os.path.join(base_folder, subcategoria)
     
-    print(f"\n[DEBUG] A procurar em: {path}", flush=True)
-
     itens = []
     
+    # Um pequeno dicionário opcional se quiser dar títulos mais bonitos aos ficheiros
+    legendas = {
+        'FOTO-232.jpg': 'Momento Especial',
+        'PHOTO-423.jpg': 'A Cerimónia',
+        'AnaJoao.mp4': 'O Casamento da Ana e do João',
+        'AnabelaRui.mp4': 'A Celebração da Anabela e do Rui'
+    }
+    
     if os.path.exists(path):
-        arquivos = os.listdir(path)
-        print(f"[DEBUG] Ficheiros encontrados: {arquivos}", flush=True)
-        
-        for ficheiro in arquivos:
-            if ficheiro.lower().endswith(('.png', '.jpg', '.jpeg', '.mp4', '.mov', '.webm')):
-                # Para vídeos, verifica se tem link específico
+        try:
+            ficheiros = os.listdir(path)
+            
+            # Filtra apenas imagens/vídeos
+            if categoria == 'video':
+                ficheiros = [f for f in ficheiros if f.lower().endswith(('.mp4', '.mov', '.webm'))]
+                cloudinary_base = CLOUDINARY_BASE_VID
+            else:
+                ficheiros = [f for f in ficheiros if f.lower().endswith(('.png', '.jpg', '.jpeg', '.gif'))]
+                cloudinary_base = CLOUDINARY_BASE_IMG
+            
+            # Ordena os ficheiros
+            ficheiros.sort()
+            
+            for ficheiro in ficheiros:
                 if categoria == 'video' and ficheiro in LINKS_VIDEOS:
+                    # Usa o link direto configurado
                     link_externo = LINKS_VIDEOS[ficheiro]
                 else:
-                    # Para imagens ou vídeos sem link específico, usa o Cloudinary
-                    # Nota: O Cloudinary pode precisar de transformações ou paths específicos
-                    # Este é um formato genérico - ajuste conforme necessário
                     file_url = quote(ficheiro)
+                    
+                    # -------------------------------------------------------------
+                    # SOLUÇÃO CLOUDINARY:
+                    # Atualmente, o seu código constrói o link para a RAIZ do Cloudinary:
                     link_externo = f"{cloudinary_base}/{file_url}"
+                    
+                    # Se no Cloudinary você guardou as fotos dentro de uma pasta (ex: "casamentos"), 
+                    # então comente a linha acima (com um #) e tire o # da linha abaixo:
+                    # link_externo = f"{cloudinary_base}/{quote(subcategoria)}/{file_url}"
+                    # -------------------------------------------------------------
                 
                 # Título a partir do nome do ficheiro (remove extensão)
                 titulo = os.path.splitext(ficheiro)[0].replace('-', ' ').replace('_', ' ').title()
@@ -118,9 +124,10 @@ def ver_trabalhos(categoria, subcategoria):
                     'imagem': link_externo,
                     'poster': CAPAS_VIDEOS.get(ficheiro, None)  # Para vídeos com poster
                 })
+        except Exception as e:
+            print(f"[DEBUG] Erro a ler directório: {e}", flush=True)
     else:
         print(f"[DEBUG] ERRO: Pasta não encontrada: {path}", flush=True)
-        # Tenta criar a pasta se não existir? Talvez não seja boa ideia
     
     return render_template(
         'portfolioFoto.html', 
