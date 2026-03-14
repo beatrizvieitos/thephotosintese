@@ -244,7 +244,7 @@
     "Eventos-93.jpg": "Marcha LGBTQ+",
     "Eventos-94.jpg": "Evento Discoteca Posh",
     "Eventos-95.jpg": "Evento Discoteca Posh",
-    "Eventos-96.jpg": "Evento Discoteca Posh",
+    "Eventos-96.jpg": "Evento Discoteca Posh"
 
   },
 
@@ -405,7 +405,7 @@
 
   },
 
-  "festas de aniversário" {
+  "festas de aniversário": {
     "Festas-1.jpg": "Kaio",
     "Festas-2.jpg": "Kaio",
     "Festas-3.jpg": "Kaio",
@@ -556,7 +556,6 @@
     "Sessoes-75.jpg": "Nicole",
     "Sessoes-76.jpg": "Ricardo Tê",
     "Sessoes-77.jpg": "Família Pinto"
-
   }
 
 }
