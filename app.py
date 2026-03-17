@@ -19,7 +19,8 @@ CAPAS = {
     'eventos corporativos': 'corporativo.jpg',
     'sessões fotográficas': 'sessoesfoto.jpg',
     'os-casamentos': 'wedvideo.jpg',
-    'os-baptizados': 'bapvideo.jpg'
+    'os-baptizados': 'bapvideo.jpg',
+    'os-concertos-e-espetáculos': 'showsvideo.jpg'
 }
 
 # Links para vídeos no Cloudinary
@@ -27,7 +28,8 @@ LINKS_VIDEOS = {
     'AnabelaRui.mp4': 'https://res.cloudinary.com/dilatofg5/video/upload/v1773282255/AnabelaRui.mp4',
     'AnaJoao.mp4': 'https://res.cloudinary.com/dilatofg5/video/upload/v1773282236/AnaJoao.mp4',
     'PatriciaDiogo.mp4': 'https://res.cloudinary.com/dilatofg5/video/upload/v1773282235/PatriciaDiogo.mp4',
-    'JuniorVivianne.mp4': 'https://res.cloudinary.com/dilatofg5/video/upload/v1773282245/JuniorVivianne.mp4'
+    'JuniorVivianne.mp4': 'https://res.cloudinary.com/dilatofg5/video/upload/v1773282245/JuniorVivianne.mp4',
+    'Hairspray.mp4': 'https://res.cloudinary.com/dilatofg5/video/upload/v1773784540/Hairspray.mp4'
 }
 
 # Poster/Capa dos vídeos
@@ -36,6 +38,7 @@ CAPAS_VIDEOS = {
     'AnaJoao.mp4': 'https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773400693/anaejoao.jpg',
     'VivianeJunior.mp4' : 'https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773400856/vivianejunior.jpg' ,
     'PatriciaDiogo.mp4' : 'https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773400855/catarinadiogo.jpg',
+    'Hairspray.mp4' : 'https://res.cloudinary.com/dilatofg5/image/upload/v1773785190/Untitled-1.jpg'
 }
 
 # Função para carregar legendas do ficheiro externo
@@ -112,6 +115,8 @@ def ver_trabalhos(categoria, subcategoria):
             print(f"[DEBUG] Erro: {e}")
             
     return render_template('portfolioFoto.html', categoria=categoria, subcategoria=subcategoria, itens=itens, tipo=categoria)
+
+
 
 @app.route('/sobre')
 def sobre():
