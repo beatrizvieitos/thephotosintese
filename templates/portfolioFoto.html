@@ -130,18 +130,19 @@
             {% for item in itens %}
             <div class="portfolio-item">
                 {% if tipo == 'video' %}
-                    <video 
-                        controls 
-                        playsinline 
-                        webkit-playsinline="true" 
-                        x5-playsinline="true" 
-                        preload="none"
-                        class="video-content"
-                        {% if item.poster %}poster="{{ item.poster }}"{% endif %}
-                    >
-                        <source src="{{ item.imagem }}" type="video/mp4">
-                        O seu navegador não suporta vídeos.
-                    </video>
+                    {% if item.imagem %}
+                    <div class="youtube-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/{{ item.imagem }}?rel=0&modestbranding=1" 
+                            title="{{ item.titulo }}"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    {% else %}
+                        <p style="color: white; text-align: center; padding: 20px;">Vídeo em atualização.</p>
+                    {% endif %}
                 {% else %}
                     <img src="{{ item.imagem }}" alt="{{ item.titulo }}">
                 {% endif %}

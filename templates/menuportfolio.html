@@ -88,7 +88,7 @@
         {% for subcategoria, info in dados.items() %}
         <div class="portfolio-item">
             <a href="{{ url_for('ver_trabalhos', categoria=categoria, subcategoria=subcategoria) }}">
-                <img src="https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_800/{{ info.capa }}" 
+                <img src="https://ik.imagekit.io/bvm99/tr:w-800/{{ info.capa }}"                
                 alt="{{ subcategoria|replace('-', ' ')|title }}" 
                 loading="lazy">
                 <div class="item-overlay">

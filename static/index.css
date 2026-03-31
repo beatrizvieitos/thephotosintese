@@ -907,3 +907,21 @@ body {
         margin-top: 50px !important;
     }
 }
+
+/* Estilos para o leitor de YouTube responsivo */
+.youtube-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Rácio perfeito de 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 4px; /* Cantos ligeiramente arredondados, podes tirar se não gostares */
+}
+
+.youtube-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

@@ -14,7 +14,7 @@ CAPAS = {
     'casamentos': 'weddings.png',
     'baptizados': 'bapti.jpg',
     'eventos': 'events.jpg',
-    'festas de aniversário': 'festadeanos.jpg',
+    'festas de aniversário': 'festaanos.jpg',
     'espetáculos': 'espet.jpg',
     'eventos corporativos': 'corporativo.jpg',
     'sessões fotográficas': 'sessoesfoto.jpg',
@@ -23,22 +23,24 @@ CAPAS = {
     'os-concertos-e-espetáculos': 'showsvideo.jpg'
 }
 
-# Links para vídeos no Cloudinary
+# Links para vídeos no ImageKit (assumindo que estão na pasta videos/os-casamentos)
 LINKS_VIDEOS = {
-    'AnabelaRui.mp4': 'https://res.cloudinary.com/dilatofg5/video/upload/v1773282255/AnabelaRui.mp4',
-    'AnaJoao.mp4': 'https://res.cloudinary.com/dilatofg5/video/upload/v1773282236/AnaJoao.mp4',
-    'PatriciaDiogo.mp4': 'https://res.cloudinary.com/dilatofg5/video/upload/v1773282235/PatriciaDiogo.mp4',
-    'JuniorVivianne.mp4': 'https://res.cloudinary.com/dilatofg5/video/upload/v1773282245/JuniorVivianne.mp4',
-    'Hairspray.mp4': 'https://res.cloudinary.com/dilatofg5/video/upload/v1773784540/Hairspray.mp4'
+    'AnabelaRui.mp4': 'tgFrktZ4_hg',
+    'AnaJoao.mp4': 'wdXenml1LeI',
+    'PatriciaDiogo.mp4': 'syb3rxrscdg',
+    'VivianeJunior.mp4': 'Y4Egto0Mseg',
+    'ClaudiaHugo.mp4': 'QXqN4qMGkDc',
+    'Hairspray.mp4': 'LksyvlTTBWQ'
 }
 
 # Poster/Capa dos vídeos
 CAPAS_VIDEOS = {
-    'AnabelaRui.mp4': 'https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773400674/Anabela_e_Rui.png',
-    'AnaJoao.mp4': 'https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773400693/anaejoao.jpg',
-    'VivianeJunior.mp4' : 'https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773400856/vivianejunior.jpg' ,
-    'PatriciaDiogo.mp4' : 'https://res.cloudinary.com/dilatofg5/image/upload/f_auto,q_auto,w_1200/v1773400855/catarinadiogo.jpg',
-    'Hairspray.mp4' : 'https://res.cloudinary.com/dilatofg5/image/upload/v1773785190/Untitled-1.jpg'
+    'AnabelaRui.mp4': 'https://ik.imagekit.io/bvm99/anabelarui.png',
+    'AnaJoao.mp4': 'https://ik.imagekit.io/bvm99/anaejoao.jpg',
+    'VivianeJunior.mp4' : 'https://ik.imagekit.io/bvm99/vivianeejunior.jpg' ,
+    'PatriciaDiogo.mp4' : 'https://ik.imagekit.io/bvm99/patriciadiogo.jpg',
+    'ClaudiaHugo.mp4' : 'https://ik.imagekit.io/bvm99/claudiahugo.jpg',
+    'Hairspray.mp4' : 'https://ik.imagekit.io/bvm99/hairspray.jpg'
 }
 
 # Função para carregar legendas do ficheiro externo
@@ -66,9 +68,8 @@ def menu_categorias(categoria):
 
 @app.route('/portfolio/<categoria>/<subcategoria>')
 def ver_trabalhos(categoria, subcategoria):
-    # URLs base do Cloudinary (Sem o v1741... para evitar erros de cache)
-    CLOUDINARY_BASE_IMG = "https://res.cloudinary.com/dilatofg5/image/upload"
-    CLOUDINARY_BASE_VID = "https://res.cloudinary.com/dilatofg5/video/upload"
+    IMAGEKIT_BASE_IMG = "https://ik.imagekit.io/bvm99/tr:w-1200"
+    IMAGEKIT_BASE_VID = "https://ik.imagekit.io/bvm99/tr:f-mp4"
     
     base_folder = IMAGE_FOLDER if categoria == 'fotografia' else VIDEO_FOLDER
     path = os.path.join(base_folder, subcategoria)
@@ -91,14 +92,15 @@ def ver_trabalhos(categoria, subcategoria):
                 if categoria == 'video' and ficheiro in LINKS_VIDEOS:
                     link_externo = LINKS_VIDEOS[ficheiro]
                 else:
-                    cloudinary_base = CLOUDINARY_BASE_VID if categoria == 'video' else CLOUDINARY_BASE_IMG
+                    cloudinary_base = IMAGEKIT_BASE_VID if categoria == 'video' else IMAGEKIT_BASE_IMG
                     
-                    # --- CONFIGURAÇÃO DO CAMINHO (MUITO IMPORTANTE) ---
-                    # Se no Cloudinary as fotos estão na RAIZ (como o teu exemplo), usa isto:
-                    link_externo = f"{cloudinary_base}/{file_url}"
-                    
-                    # SE decidires usar pastas no Cloudinary, o link deve ser:
-                    # link_externo = f"{cloudinary_base}/thephotosintese/fotografia/{subcategoria}/{file_url}"
+                    # --- CONFIGURAÇÃO DO CAMINHO ---
+                    if categoria == 'video':
+                        # Vai buscar o ID do YouTube correspondente ao nome do ficheiro
+                        link_externo = YOUTUBE_VIDEOS.get(ficheiro, '') 
+                    else:
+                        # As fotos continuam a vir do ImageKit normalmente!
+                        link_externo = f"{IMAGEKIT_BASE_IMG}/fotos/{subcategoria}/{file_url}"
                 
                 # --- LEGENDA ---
                 # Procura no JSON; se não existir, limpa o nome do ficheiro automaticamente
