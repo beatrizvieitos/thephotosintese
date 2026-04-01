@@ -30,7 +30,10 @@ LINKS_VIDEOS = {
     'PatriciaDiogo.mp4': 'syb3rxrscdg',
     'VivianeJunior.mp4': 'Y4Egto0Mseg',
     'ClaudiaHugo.mp4': 'QXqN4qMGkDc',
-    'Hairspray.mp4': 'LksyvlTTBWQ'
+    'Hairspray.mp4': 'LksyvlTTBWQ',
+    'MarilynOMusical.mp4': 'B-y_w6TGdl4',
+    'CriadoresTikTok.mp4': '3eYrPMymEIg',
+    'Alyssa.mp4': 'I3VV0XRRRvc'
 }
 
 # Poster/Capa dos vídeos
@@ -40,7 +43,9 @@ CAPAS_VIDEOS = {
     'VivianeJunior.mp4' : 'https://ik.imagekit.io/bvm99/vivianeejunior.jpg' ,
     'PatriciaDiogo.mp4' : 'https://ik.imagekit.io/bvm99/patriciadiogo.jpg',
     'ClaudiaHugo.mp4' : 'https://ik.imagekit.io/bvm99/claudiahugo.jpg',
-    'Hairspray.mp4' : 'https://ik.imagekit.io/bvm99/hairspray.jpg'
+    'Hairspray.mp4' : 'https://ik.imagekit.io/bvm99/hairspray.jpg',
+    'MarilynOMusical.mp4' : 'https://ik.imagekit.io/bvm99/marilynomusical.jpg',
+    'CriadoresTikTok.mp4' : 'https://ik.imagekit.io/bvm99/criadorestiktok.jpg'
 }
 
 # Função para carregar legendas do ficheiro externo

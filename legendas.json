@@ -742,8 +742,15 @@
 
   },
 
-  "os-shows": {
-    "Hairspray.mp4": "Hairspray"
+  "os-concertos-e-espetáculos": {
+    "Hairspray.mp4": "Hairspray",
+    "MarilynOMusical.mp4": "Marilyn, O Musical",
+    "CriadoresTikTok.mp4": "Criadores de TikTok Show"
+
+  },
+
+  "os-baptizados": {
+    "Alyssa.mp4": "Alyssa"
 
   }
 }
