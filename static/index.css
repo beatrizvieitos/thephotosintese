@@ -783,7 +783,7 @@ body {
     }
     
     /* Vídeos mobile */
-    .portfolio-item:has(video) {
+    .portfolio-item:has(.youtube-container) {
         background-color: #1a1a1a;
         border-radius: 12px;
         overflow: hidden;
@@ -791,8 +791,8 @@ body {
         margin-bottom: 15px;
     }
     
-    .portfolio-item:has(video) .item-overlay {
-        display: flex !important; /* Mudamos para flex para que o texto apareça */
+    .portfolio-item:has(.youtube-container) .item-overlay {
+        display: flex !important;
     }
     
     /* Garante que o H1 não fica colado ou tapado pelo Header */

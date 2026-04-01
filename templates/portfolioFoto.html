@@ -129,16 +129,11 @@
         {% if itens %}
             {% for item in itens %}
             <div class="portfolio-item">
+                
                 {% if tipo == 'video' %}
                     {% if item.imagem %}
                     <div class="youtube-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/{{ item.imagem }}?rel=0&modestbranding=1" 
-                            title="{{ item.titulo }}"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
+                        <div class="youtube-player" id="yt-player-{{ loop.index }}" data-video="{{ item.imagem }}"></div>
                     </div>
                     {% else %}
                         <p style="color: white; text-align: center; padding: 20px;">Vídeo em atualização.</p>
@@ -146,10 +141,11 @@
                 {% else %}
                     <img src="{{ item.imagem }}" alt="{{ item.titulo }}">
                 {% endif %}
-                
+
                 <div class="item-overlay">
                     <h3>{{ item.titulo }}</h3>
                 </div>
+                
             </div>
             {% endfor %}
         {% else %}
@@ -162,5 +158,43 @@
     <footer class="main-footer">
         &copy; 2023 The Photo Síntese. Todos os direitos reservados.
     </footer>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        // Quando a API do YouTube carregar...
+        function onYouTubeIframeAPIReady() {
+            // Procura todas as caixas vazias que preparámos
+            var players = document.querySelectorAll('.youtube-player');
+            
+            players.forEach(function(playerDiv) {
+                // Vai buscar o ID do vídeo (ex: dQw4w9WgXcQ) que guardámos no data-video
+                var videoId = playerDiv.getAttribute('data-video');
+                
+                // Pede ao YouTube para construir a iframe ali mesmo
+                new YT.Player(playerDiv.id, {
+                    videoId: videoId,
+                    playerVars: {
+                        'rel': 0, // Esconde vídeos relacionados de outros canais
+                        'modestbranding': 1 // Esconde o logo do YouTube
+                    },
+                    events: {
+                        'onStateChange': onPlayerStateChange
+                    }
+                });
+            });
+        }
+
+        // Função que esconde/mostra o overlay
+        function onPlayerStateChange(event) {
+            var iframeElement = event.target.getIframe();
+            var portfolioItem = iframeElement.closest('.portfolio-item');
+
+            if (event.data == YT.PlayerState.PLAYING) {
+                portfolioItem.classList.add('is-playing');
+            } else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
+                portfolioItem.classList.remove('is-playing');
+            }
+        }
+    </script>
 </body>
 </html>
