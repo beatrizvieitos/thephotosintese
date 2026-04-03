@@ -23,7 +23,7 @@ CAPAS = {
     'os-concertos-e-espetáculos': 'showsvideo.jpg'
 }
 
-# Links para vídeos no ImageKit (assumindo que estão na pasta videos/os-casamentos)
+
 LINKS_VIDEOS = {
     'AnabelaRui.mp4': 'tgFrktZ4_hg',
     'AnaJoao.mp4': 'wdXenml1LeI',
@@ -33,7 +33,12 @@ LINKS_VIDEOS = {
     'Hairspray.mp4': 'LksyvlTTBWQ',
     'MarilynOMusical.mp4': 'B-y_w6TGdl4',
     'CriadoresTikTok.mp4': '3eYrPMymEIg',
-    'Alyssa.mp4': 'I3VV0XRRRvc'
+    'Alyssa.mp4': 'I3VV0XRRRvc',
+    'MariaFrancisca.mp4': 'UM-_sq4QXyc',
+    'Leonor.mp4': 'e9U23WkwlUg',
+    'MariadaGloria.mp4': 'qbjkpyEHktY',
+    'VictoriaeSantiago.mp4': 'ccdFXR2fWtc'
+
 }
 
 # Poster/Capa dos vídeos

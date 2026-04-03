@@ -142,7 +142,13 @@
     "Baptizados-141.jpg": "Maria Francisca",
     "Baptizados-142.jpg": "Constança",
     "Baptizados-143.jpg": "Constança",
-    "Baptizados-144.jpg": "Constança"
+    "Baptizados-144.jpg": "Lourenço",
+    "Baptizados-145.jpg": "Lourenço",
+    "Baptizados-146.jpg": "Lourenço",
+    "Baptizados-147.jpg": "Lourenço",
+    "Baptizados-148.jpg": "Lourenço",
+    "Baptizados-149.jpg": "Lourenço",
+    "Baptizados-150.jpg": "Lourenço"
 
   },
 
@@ -291,7 +297,32 @@
     "Casamentos-142.jpg": "Patrícia & Diogo",
     "Casamentos-143.jpg": "Patrícia & Diogo",
     "Casamentos-144.jpg": "Patrícia & Diogo",
-    "Casamentos-145.jpg": "Patrícia & Diogo"
+    "Casamentos-145.jpg": "Patrícia & Diogo",
+    "Casamentos-146.jpg": "Carla & Filipe",
+    "Casamentos-147.jpg": "Carla & Filipe",
+    "Casamentos-148.jpg": "Carla & Filipe",
+    "Casamentos-149.jpg": "Carla & Filipe",
+    "Casamentos-150.jpg": "Carla & Filipe",
+    "Casamentos-151.jpg": "Carla & Filipe",
+    "Casamentos-152.jpg": "Carla & Filipe",
+    "Casamentos-153.jpg": "Carla & Filipe",
+    "Casamentos-154.jpg": "Carla & Filipe",
+    "Casamentos-155.jpg": "Carla & Filipe",
+    "Casamentos-156.jpg": "Cláudia & Hugo",
+    "Casamentos-157.jpg": "Cláudia & Hugo",
+    "Casamentos-158.jpg": "Cláudia & Hugo",
+    "Casamentos-159.jpg": "Cláudia & Hugo",
+    "Casamentos-160.jpg": "Cláudia & Hugo",
+    "Casamentos-161.jpg": "Cláudia & Hugo",
+    "Casamentos-162.jpg": "Cláudia & Hugo",
+    "Casamentos-163.jpg": "Cláudia & Hugo",
+    "Casamentos-164.jpg": "Cláudia & Hugo",
+    "Casamentos-165.jpg": "Cláudia & Hugo",
+    "Casamentos-166.jpg": "Cláudia & Hugo",
+    "Casamentos-167.jpg": "Cláudia & Hugo",
+    "Casamentos-168.jpg": "Cláudia & Hugo",
+    "Casamentos-169.jpg": "Cláudia & Hugo"
+
   },
 
   "eventos corporativos": {
@@ -319,7 +350,27 @@
     "Corporate-22.jpg": "Arquiprix 2021",
     "Corporate-23.jpg": "Encontro Embaixada do Kosovo",
     "Corporate-24.jpg": "Encontro Embaixada do Kosovo",
-    "Corporate-25.jpg": "Encontro Embaixada do Kosovo"
+    "Corporate-25.jpg": "Encontro Embaixada do Kosovo",
+    "Corporate-26.jpg": "Elevate 2025",
+    "Corporate-27.jpg": "Elevate 2025",
+    "Corporate-28.jpg": "Elevate 2025",
+    "Corporate-29.jpg": "Elevate 2025",
+    "Corporate-30.jpg": "Elevate 2025",
+    "Corporate-31.jpg": "Elevate 2025",
+    "Corporate-32.jpg": "Elevate 2025",
+    "Corporate-33.jpg": "Kick Off Jungeinrich 2026",
+    "Corporate-34.jpg": "Elevate 2025",
+    "Corporate-35.jpg": "Elevate 2025",
+    "Corporate-36.jpg": "Elevate 2025",
+    "Corporate-37.jpg": "Elevate 2025",
+    "Corporate-38.jpg": "Elevate 2025",
+    "Corporate-39.jpg": "Elevate 2025",
+    "Corporate-40.jpg": "Elevate 2025",
+    "Corporate-41.jpg": "Kick Off Jungeinrich 2026",
+    "Corporate-42.jpg": "Kick Off Jungeinrich 2026",
+    "Corporate-43.jpg": "Kick Off Jungeinrich 2026",
+    "Corporate-44.jpg": "Kick Off Jungeinrich 2026",
+    "Corporate-45.jpg": "Kick Off Jungeinrich 2026"
 
   },
 
@@ -750,7 +801,11 @@
   },
 
   "os-baptizados": {
-    "Alyssa.mp4": "Alyssa"
+    "Alyssa.mp4": "Alyssa",
+    "Leonor.mp4": "Leonor",
+    "MariadaGloria.mp4": "Maria da Glória",
+    "VictoriaeSantiago.mp4": "Victoria e Santiago",
+    "MariaFrancisca.mp4": "Maria Francisca"
 
   }
 }
