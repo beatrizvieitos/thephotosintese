@@ -807,5 +807,38 @@
     "VictoriaeSantiago.mp4": "Victoria e Santiago",
     "MariaFrancisca.mp4": "Maria Francisca"
 
+  },
+
+  "os-eventos-corporativos": {
+    "Elevate2025.mp4" : "Elevate 2025",
+    "KickoffJungeinrich.mp4" : "Kickoff Jungeinrich 2026"
+  },
+
+  "as-festas-de-aniversário": {
+    "FestaAniverClara.mp4" : "Clara",
+    "FestaAniverKaio.mp4" : "Kaio"
+  },
+
+  "conteúdo-redes-sociais": {
+    "CLAmanova.mp4" : "Cláudia Lopes - Amanova",
+    "CLBatons.mp4" : "Cláudia Lopes - Batons",
+    "CLBrincosSF.mp4" : "Cláudia Lopes - Brincos Sara Farinha",
+    "CLBrincosSF2.mp4" : "Cláudia Lopes - Brincos Sara Farinha",
+    "CLDesincoffee.mp4" : "Cláudia Lopes - Desincoffee",
+    "CLDormidina.mp4" : "Cláudia Lopes - Dormidina",
+    "CLKombuchas.mp4" : "Cláudia Lopes - Kombuchas Mini Preço",
+    "CLVitaminaCGarnier.mp4" : "Cláudia Lopes - Vitamina C Garnier",
+    "CLAguaMicelarGarnier.mp4" : "Cláudia Lopes - Água Micelar Garnier",
+    "CLProzis.mp4" : "Cláudia Lopes - Prozis",
+    "CADLotaNazare.mp4" : "Chef Carlos Afonso - Lota da Nazaré",
+    "CADTeaser.mp4" : "Chef Carlos Afonso",
+    "CADLimiano.mp4" : "Chef Carlos Afonso - Batatas Gratinadas com Limiano",
+    "CADArrozPeixe.mp4" : "Chef Carlos Afonso - Arroz com Peixe",
+    "CADRabanadas.mp4" : "Chef Carlos Afonso - Rabanadas",
+    "CADArrozDoce.mp4" : "Chef Carlos Afonso - Arroz Doce",
+    "EmaSmashBurguer.mp4" : "Ema - Smash Burger",
+    "TBCWorkshop1.mp4" : "The Book Company - Workshop BD",
+    "TBCExposicaoTentativaErro.mp4" : "The Book Company - Exposição Tentativa/Erro",
+    "JDInauguracao.mp4" : "Inauguração JD Colombo"
   }
 }

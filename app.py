@@ -20,7 +20,10 @@ CAPAS = {
     'sessões fotográficas': 'sessoesfoto.jpg',
     'os-casamentos': 'wedvideo.jpg',
     'os-baptizados': 'bapvideo.jpg',
-    'os-concertos-e-espetáculos': 'showsvideo.jpg'
+    'os-concertos-e-espetáculos': 'showsvideo.jpg',
+    'os-eventos-corporativos': 'corpvideo.jpg',
+    'as-festas-de-aniversário': 'festanivervideo.jpg',
+    'conteúdo-redes-sociais': 'redessociais.jpg'
 }
 
 
@@ -37,20 +40,40 @@ LINKS_VIDEOS = {
     'MariaFrancisca.mp4': 'UM-_sq4QXyc',
     'Leonor.mp4': 'e9U23WkwlUg',
     'MariadaGloria.mp4': 'qbjkpyEHktY',
-    'VictoriaeSantiago.mp4': 'ccdFXR2fWtc'
+    'VictoriaeSantiago.mp4': 'ccdFXR2fWtc',
+    'Elevate2025.mp4' : 'GTU4xqEQCN4',
+    'KickoffJungeinrich.mp4' : 'uH_VS7OI5uk',
+    'FestaAniverClara.mp4' : 'W4ogtCzod1M',
+    'FestaAniverKaio.mp4' : 'zqbSYqXVfzc',
+    'CLAmanova.mp4' : '1uyLYb9ZkDc',
+    'CLBatons.mp4' : 'uGUguq0ml4E',
+    'CLBrincosSF.mp4' : '7Ydk-MzWOmo',
+    'CLBrincosSF2.mp4' : 'mBjRsSlc_EE',
+    'CLDesincoffee.mp4' : 'oePMZ66qQ7k',
+    'CLDormidina.mp4' : 'rbZDuJZoLIY',
+    'CLKombuchas.mp4' : 'Rfwj2A_ie4Y',
+    'CLVitaminaCGarnier.mp4' : 'iEZ4_zX-8EU',
+    'CLAguaMicelarGarnier.mp4' : 'qCPa24gmFc0',
+    'CLProzis.mp4' : 'oVz_JvUuSy0',
+    'CADLotaNazare.mp4' : 'Kds0jsDyITU',
+    'CADTeaser.mp4' : 'S1-M32SPz9o',
+    'CADLimiano.mp4' : 'FK9CKiU4VC8',
+    'CADArrozPeixe.mp4' : 's2yPn4GlD9Y',
+    'CADRabanadas.mp4' : 'TlJKF13U_7k',
+    'CADArrozDoce.mp4' : 'ZXIdf1YY3-g',
+    'EmaSmashBurguer.mp4' : '2F9uiHTS-Zc',
+    'TBCWorkshop1.mp4' : 'neF37oOi22A',
+    'TBCExposicaoTentativaErro.mp4' : 'S8H-_d3w6xM',
+    'JDInauguracao.mp4' : 'P4AWyyA2Pxo'
+
 
 }
 
 # Poster/Capa dos vídeos
 CAPAS_VIDEOS = {
-    'AnabelaRui.mp4': 'https://ik.imagekit.io/bvm99/anabelarui.png',
-    'AnaJoao.mp4': 'https://ik.imagekit.io/bvm99/anaejoao.jpg',
-    'VivianeJunior.mp4' : 'https://ik.imagekit.io/bvm99/vivianeejunior.jpg' ,
-    'PatriciaDiogo.mp4' : 'https://ik.imagekit.io/bvm99/patriciadiogo.jpg',
-    'ClaudiaHugo.mp4' : 'https://ik.imagekit.io/bvm99/claudiahugo.jpg',
-    'Hairspray.mp4' : 'https://ik.imagekit.io/bvm99/hairspray.jpg',
-    'MarilynOMusical.mp4' : 'https://ik.imagekit.io/bvm99/marilynomusical.jpg',
-    'CriadoresTikTok.mp4' : 'https://ik.imagekit.io/bvm99/criadorestiktok.jpg'
+    #'AnabelaRui.mp4': 'https://ik.imagekit.io/bvm99/anabelarui.png',
+    #'AnaJoao.mp4': 'https://ik.imagekit.io/bvm99/anaejoao.jpg',
+    #etc... (Adicionar os restantes conforme necessário)
 }
 
 # Função para carregar legendas do ficheiro externo
